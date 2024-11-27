@@ -1,0 +1,30 @@
+{
+    "kind": "collectionType",
+    "collectionName": "buildings",
+    "info": {
+        "singularName": "building",
+        "pluralName": "buildings",
+        "displayName": "Building",
+        "description": ""
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "name": {
+            "type": "string",
+            "required": true
+        },
+        "address": {
+            "type": "string",
+            "required": true
+        },
+        "rooms": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::room.room",
+            "mappedBy": "building"
+        }
+    }
+}

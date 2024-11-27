@@ -1,0 +1,32 @@
+{
+    "kind": "collectionType",
+    "collectionName": "devices",
+    "info": {
+        "singularName": "device",
+        "pluralName": "devices",
+        "displayName": "Device",
+        "description": ""
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "identifier": {
+            "type": "uid",
+            "required": true
+        },
+        "room": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::room.room",
+            "inversedBy": "devices"
+        },
+        "device_data": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::device-data.device-data",
+            "mappedBy": "device"
+        }
+    }
+}

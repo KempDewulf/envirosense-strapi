@@ -1,0 +1,31 @@
+{
+    "kind": "collectionType",
+    "collectionName": "room_types",
+    "info": {
+        "singularName": "room-type",
+        "pluralName": "room-types",
+        "displayName": "Room Type"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "name": {
+            "type": "string",
+            "required": true
+        },
+        "icon": {
+            "allowedTypes": ["images", "files"],
+            "type": "media",
+            "multiple": false,
+            "required": true
+        },
+        "rooms": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::room.room",
+            "mappedBy": "room_type"
+        }
+    }
+}

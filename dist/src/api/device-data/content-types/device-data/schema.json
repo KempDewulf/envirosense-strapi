@@ -1,0 +1,37 @@
+{
+    "kind": "collectionType",
+    "collectionName": "device_datas",
+    "info": {
+        "singularName": "device-data",
+        "pluralName": "device-datas",
+        "displayName": "Device Data"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "device": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::device.device",
+            "inversedBy": "device_data"
+        },
+        "timestamp": {
+            "type": "datetime",
+            "required": true
+        },
+        "temperature": {
+            "type": "decimal",
+            "required": true
+        },
+        "humidity": {
+            "type": "decimal",
+            "required": true
+        },
+        "gas_ppm": {
+            "type": "decimal",
+            "required": true
+        }
+    }
+}
