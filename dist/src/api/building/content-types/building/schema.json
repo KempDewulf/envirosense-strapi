@@ -1,10 +1,11 @@
 {
     "kind": "collectionType",
-    "collectionName": "room_types",
+    "collectionName": "buildings",
     "info": {
-        "singularName": "room-type",
-        "pluralName": "room-types",
-        "displayName": "Room Type"
+        "singularName": "building",
+        "pluralName": "buildings",
+        "displayName": "Building",
+        "description": ""
     },
     "options": {
         "draftAndPublish": true
@@ -15,20 +16,15 @@
             "type": "string",
             "required": true
         },
-        "icon": {
-            "allowedTypes": [
-                "images",
-                "files"
-            ],
-            "type": "media",
-            "multiple": false,
+        "address": {
+            "type": "string",
             "required": true
         },
         "rooms": {
             "type": "relation",
             "relation": "oneToMany",
             "target": "api::room.room",
-            "mappedBy": "room_type"
+            "mappedBy": "building"
         }
     }
 }
