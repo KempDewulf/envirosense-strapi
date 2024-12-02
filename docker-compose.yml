@@ -1,16 +1,42 @@
 version: '3.8'
 services:
-  postgres:
+  postgres-envirosense:
     image: postgres:latest
     container_name: postgres_enviro
     environment:
-      POSTGRES_USER: enviro_user
-      POSTGRES_PASSWORD: enviro_pass
+      POSTGRES_USER: envirosense_admin
+      POSTGRES_PASSWORD: VvAm6tpdwGfx1o9i192HQZ9S0ZcUUV3kexG3ZIas394c8dhbw8
       POSTGRES_DB: envirosense
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-
+  
+  strapi:
+    image: node:22
+    working_dir: /usr/src/app
+    ports:
+      - "1331:1331"
+    volumes:
+      - ./strapicms:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      DATABASE_CLIENT: postgres
+      DATABASE_HOST: postgres-envirosense
+      DATABASE_PORT: 5432
+      DATABASE_NAME: envirosense
+      HOST: 0.0.0.0
+      PORT: 1331
+      DATABASE_USERNAME: envirosense_admin
+      DATABASE_PASSWORD: VvAm6tpdwGfx1o9i192HQZ9S0ZcUUV3kexG3ZIas394c8dhbw8
+      APP_KEYS: "m/EfqmY3ZTmYB/Al7c/+8Q==,L3Z3W86gIAJEBfhYYv4HSQ==,ZhsTNIqExzCFNc1NTUpGwQ==,fAFY+ff7J2p"
+      API_TOKEN_SALT: "FHASGjdDLZdmUKSA9HLKuw=="
+      ADMIN_JWT_SECRET: "bhjdi/K9vS4Nv80QWFgDqw=="
+      JWT_SECRET: "+TSDSUKpJEpW/sZXRTWocA=="
+      TRANSFER_TOKEN_SALT: "tc7U2Yz9lc5/jdz8vq3WRA=="
+    command: >
+      sh -c "npm install &&
+             npm run build &&
+             npm run start"
 volumes:
   postgres_data:
