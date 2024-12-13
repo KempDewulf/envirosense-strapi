@@ -11,9 +11,10 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-  
+
   strapi:
     image: node:22
+    container_name: "strapi-cms"
     working_dir: /usr/src/app
     ports:
       - "1331:1331"
