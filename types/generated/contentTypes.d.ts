@@ -415,7 +415,7 @@ export interface ApiDeviceDataDeviceData extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     device: Schema.Attribute.Relation<'manyToOne', 'api::device.device'>;
-    gas_ppm: Schema.Attribute.Decimal & Schema.Attribute.Required;
+    ppm: Schema.Attribute.Decimal & Schema.Attribute.Required;
     humidity: Schema.Attribute.Decimal & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
