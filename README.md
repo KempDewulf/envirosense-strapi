@@ -5,9 +5,6 @@ This project is a content management system (CMS) using Strapi. In our case it's
 
 By using Strapi we get an out-of-the-box REST API for our database.
 
-## Database Structure
-The system has several key entities defined in the API schemas:
-
 # Database Structure
 
 The system consists of several key entities defined in the API schemas, with relationships as described below.
