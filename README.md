@@ -5,6 +5,59 @@ This project is a content management system (CMS) using Strapi. In our case it's
 
 By using Strapi we get an out-of-the-box REST API for our database.
 
+## Database Structure
+The system has several key entities defined in the API schemas:
+
+# Database Structure
+
+The system consists of several key entities defined in the API schemas, with relationships as described below.
+
+## Entities
+
+### Building
+- **Properties:**
+  - `name`: Text
+  - `address`: Text
+- **Relationships:**
+  - Has many rooms
+
+---
+
+### Room
+- **Properties:**
+  - `name`: Text
+- **Relationships:**
+  - Belongs to a `building`
+  - Has a `room type`
+  - Contains multiple `devices`
+
+---
+
+### Device
+- **Properties:**
+  - `identifier`: UID (Unique Identifier)
+- **Relationships:**
+  - Located in a `room`
+  - Collects `device data`
+
+---
+
+### Device Data
+- **Properties:**
+  - `timestamp`: Datetime
+  - `temperature`: Number
+  - `humidity`: Number
+  - `ppm`: Number
+- **Relationships:**
+  - Associated with a `device`
+
+## Technology Stack
+- **Database:** PostgreSQL (configurable via `docker-compose.yml`)
+
+## Database Design
+
+![Database Design](./readme-assets/trendloom-design.png)
+
 ## Setup Instructions
 
 ### Prerequisites
