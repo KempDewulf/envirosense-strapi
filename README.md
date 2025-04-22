@@ -64,7 +64,7 @@ The system consists of several key entities defined in the API schemas, with rel
 ### Installation
 1. Clone the repository:
     ```sh
-    git clone git@gitlab.ti.howest.be:ti/2024-2025/s5/ccett/projects/group-14/strapi-cms.git
+    git clone git@github.com:KempDewulf/envirosense-strapi.git
     cd strapi-cms
     ```
 
